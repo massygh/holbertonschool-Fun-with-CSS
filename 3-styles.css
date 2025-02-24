@@ -1,0 +1,77 @@
+.menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: relative;
+}
+
+.menu-open {
+    display: none;
+}
+
+.menu-open-button {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background-color: #d73953;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease;
+    z-index: 2;
+}
+
+.menu-line {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 3px 0;
+    transition: transform 0.3s ease;
+}
+
+.menu-item {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: #d73953;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+    transform: translate(0, 0) scale(0);
+}
+
+.menu-open:checked ~ .menu-item {
+    transform: scale(1);
+}
+
+.menu-open:checked ~ .menu-item:nth-child(3) { transform: translate(-100px, -100px); }
+.menu-open:checked ~ .menu-item:nth-child(4) { transform: translate(-140px, 0); }
+.menu-open:checked ~ .menu-item:nth-child(5) { transform: translate(-100px, 100px); }
+.menu-open:checked ~ .menu-item:nth-child(6) { transform: translate(0, 140px); }
+.menu-open:checked ~ .menu-item:nth-child(7) { transform: translate(100px, 100px); }
+
+.menu-open:checked ~ .menu-open-button .menu-line-1 {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.menu-open:checked ~ .menu-open-button .menu-line-2 {
+    opacity: 0;
+}
+
+.menu-open:checked ~ .menu-open-button .menu-line-3 {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
+.menu-item:hover {
+    background-color: white;
+    color: #d73953;
+    border: 2px solid #d73953;
+}
